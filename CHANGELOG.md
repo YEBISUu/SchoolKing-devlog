@@ -13,6 +13,13 @@
 
 
 
+## 2026-10-09 — 토스터 총구 화염 가시성 확대
+
+- TGS/Tennis 양 시점 공통 Flamethrower-01 총구 화염 크기 원본 40%→80%(직전 대비 2배), 수명 0.16~0.24→0.3~0.4초.
+- 1인칭·타인 효과 정리 시간을 0.35→0.6초로 늘려 긴 파티클이 중간에 삭제되지 않도록 변경. 방출 수·피해·탄환 효과 유지.
+- 양쪽 편집본 컴파일 및 2종 파티클 설정 확인. 실제 화면 체감 확인은 남음. Roblox 미게시.
+- 백업: ServerStorage.ToasterMuzzleLargerBackup_20261009_1791508094(TGS), ...1791508096(Tennis), PC outputs/toaster-muzzle-flamethrower-20261009/*-larger-before/after.json. 기존 40% 효과는 Studio 백업에 보관.
+
 ## 2026-10-09 — 토스터 양 시점 총구 화염 Flamethrower-01로 교체
 
 - TGS 및 Tennis 테스트 편집본 적용. TGS Workspace.Anime.Flamethrower-01.Main의 두 파티클을 공통 ToasterMuzzleFlame 템플릿으로 구성.
