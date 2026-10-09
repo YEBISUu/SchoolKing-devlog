@@ -13,6 +13,14 @@
 
 
 
+## 2026-10-09 — 테니스 연출 글자 표시·흑백 복원 수정
+
+- HUDController의 KEEP_GUI 허용 목록 누락으로 TennisCinematic이 꺼지는 원인 수정.
+- 사망 직후 2초만 흑백 적용하고, 경기장 회전 카메라에서는 컬러 복원. 최종 패배 화면에도 동일 적용.
+- 글자 ZIndex를 배경보다 높게 명시.
+- Studio 미리보기에서 UI Enabled=true, 글자 Visible/투명도/텍스트 영역, 매치 포인트 표시 및 흑백→컬러 복원 확인.
+- 백업: ServerStorage.TennisTextFixBackup_1791546995, outputs/tennis-cinematic-visible-fix-20261009. 게시하지 않음.
+
 ## 2026-10-09 — 테니스 라운드·승패 연출 및 Studio 미리보기
 
 - 테니스 테스트 플레이스만 적용. Roblox 게시는 사용자 진행.
