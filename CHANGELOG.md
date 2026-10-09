@@ -13,6 +13,14 @@
 
 
 
+## 2026-10-09 — 토스터 양 시점 총구 화염 Flamethrower-01로 교체
+
+- TGS 및 Tennis 테스트 편집본 적용. TGS Workspace.Anime.Flamethrower-01.Main의 두 파티클을 공통 ToasterMuzzleFlame 템플릿으로 구성.
+- 색·텍스처·방향 유지, 크기 원본 40%, 수명 0.16~0.24초, 발사당 각 6개 분사. 작은 총구 조명 0.06초, 생성 효과 정리 0.35초.
+- 1인칭은 기존 SmokePart의 FlashFX/Smoke 방출 대신 공통 템플릿 복제. 타인·봇 시점도 같은 템플릿 사용. 탄환 Fire-01 장식 및 무기 피해 변경 없음.
+- 양쪽 컴파일 및 실제 효과 생성 함수 분리 호출에서 양 시점 동일 파티클·수명·방출량 검사 통과. 실제 플레이 시각·애셋 로드 검증은 남음.
+- 백업: 양쪽 ServerStorage.ToasterFlamethrowerBackup_20261009_1791507829 및 PC outputs/toaster-muzzle-flamethrower-20261009. Roblox 미게시.
+
 ## 2026-10-09 — 벽타기 과속 누적 차단
 
 - 테니스 실제 플레이에서 Space 유지 중 벽타기 수평 속도가 최고 약 212스터드/초까지 증가하는 기록 확보. 해당 구간 벽점프·멘틀 부스트 발동 기록 없음. TGS에도 같은 경로 확인.
