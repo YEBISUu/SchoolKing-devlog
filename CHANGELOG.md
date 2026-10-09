@@ -13,6 +13,15 @@
 
 
 
+## 2026-10-09 — 테니스 승자 이동·랜덤 전경 3개·대형 스코어
+
+- 라운드 종료 2초 후 승자를 고정하던 처리 제거. 관전 전경에서도 다음 라운드 준비 전까지 이동 가능하며 전투 차단/무적 유지.
+- 전경 카메라에서 본인 캐릭터 가시성 복원, 이동 방향 회전 허용. 1인칭 무기 모델 및 CrosshairAmmoHUD 숨김.
+- CameraStart / CameraStart2 / CameraStart3 세 구도. 서버가 매 라운드 하나를 무작위 선택해 모든 참여자에게 동일 구도 전달. 연속 회전 유지.
+- 스코어는 Roblox 글자 크기 상한을 피하도록 UIScale 3배 사용.
+- 검증: 실제 봇 처치 3초 후 RoundOver에서 승자 Anchored=false 및 무적 확인. 전경 미리보기 UI 표시, 숫자 배율 3, 탄약 UI 비활성 및 카메라 무기 파트 숨김 확인.
+- 백업: ServerStorage.TennisMoveCameraBackup_1791547220 / outputs/tennis-cinematic-movement-20261009. Roblox 게시하지 않음.
+
 ## 2026-10-09 — 테니스 연출 글자 표시·흑백 복원 수정
 
 - HUDController의 KEEP_GUI 허용 목록 누락으로 TennisCinematic이 꺼지는 원인 수정.
