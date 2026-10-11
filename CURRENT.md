@@ -97,6 +97,12 @@ TGS·테니스 다섯 총기 공통. ReplicatedStorage.GunSystem의 LagCompensat
 
 ServerScriptService.HitRegistrationHistory 및 각 무기의 ClientHandler/ServerHandler에서 연결한다. ServerStorage.HitRegistrationBackup_20261011에 검증된 전체 원복 자료 보관. [구현 범위·원복 절차·검증](updates/2026-10-11-hit-registration.md).
 
+## 처치 비행·착지 분해
+
+TGS·테니스 공통. 사망 확정 후 공격 방향으로 래그돌 비행 → 하강 중 첫 바닥 접촉에서1회 분해 → 조각2.5초 후 정리. 일반 수평/상승62/38, 스나이퍼82/44, 강화탄100/50, 합성 속도 상한110, 수평 제한 기준72 studs. 중력0.65배/기존 속도15%(최대12) 반영. 작은 조각12개, 동시 몸체10개.
+
+편집: `ReplicatedStorage.DeathLaunchConfig`. Enabled=false 후 새 Play로 기존 즉시 분해 경로 사용. R6 Motor6D/R15 AnimationConstraint 지원, 벽 접촉은 감쇠하고 바닥만 분해. 테니스 기존 감속과 중복되지 않도록 연동. [최종 값·실측·원복](updates/2026-10-11-death-launch-landing-shatter.md).
+
 ## 테니스 처치 슬로모션
 
 `ReplicatedStorage.TennisDuelConfig`: KillSlowMotionEnabled=true, Duration=3초, Scale=0.1, Hold=0(정확한 필드명은 모두 KillSlowMotion 접두어). 10%에서 시작해 3초 동안 점차 정상 속도로 복귀한다. 1.5초 시점55%. ResultCameraDelay=3, RoundResultSeconds=6.5.
