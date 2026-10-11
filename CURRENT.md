@@ -65,7 +65,7 @@
 - WeaponBox 폭300/높이88 기준, AmmoMag 위치198/1, 크기82/44. AmmoReserve 위치198/45, 크기82/22.
 - ShieldSegments: SegmentValue25, ReferenceSegments4, SegmentGap4. 최대 실드 변화 시 칸 수 조정. 숫자 숨김.
 - 회복 개수는 Player.BookCount, 중앙 탄약은 서버 AmmoUpdateEvent 기반 표시. 실제 탄 소비/회복 판정과 별도.
-- 중앙 탄약 아크는 토스터 기본 반경으로 공통 배치. 스나이퍼 스코프 중 숨김.
+- 중앙 탄약 아크는 토스터 기본 반경으로 공통 배치하며 스나이퍼 스코프 중에도 표시·갱신. 스코프 마스크 DisplayOrder=-1로 체력·실드·아이템·장비 HUD 아래에 배치하고, 일반 조준점만 숨긴다. [상세](updates/2026-10-11-sniper-scope-hud.md).
 
 목발은 자동만 허용하며 B 전환 없음. 목발/컴퍼스 전용 근접 공격 비활성. 컴퍼스 기본3점사는 유지.
 
