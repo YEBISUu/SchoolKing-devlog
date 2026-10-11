@@ -97,15 +97,15 @@ TGS·테니스 다섯 총기 공통. ReplicatedStorage.GunSystem의 LagCompensat
 
 ServerScriptService.HitRegistrationHistory 및 각 무기의 ClientHandler/ServerHandler에서 연결한다. ServerStorage.HitRegistrationBackup_20261011에 검증된 전체 원복 자료 보관. [구현 범위·원복 절차·검증](updates/2026-10-11-hit-registration.md).
 
-## 처치 비행·착지 분해
+## 처치 연출
 
-TGS·테니스 공통. 사망 확정 후 공격 방향으로 래그돌 비행 → 하강 중 첫 바닥 접촉에서1회 분해 → 조각2.5초 후 정리. 일반 수평/상승62/38, 스나이퍼82/44, 강화탄100/50, 합성 속도 상한110, 수평 제한 기준72 studs. 중력0.65배/기존 속도15%(최대12) 반영. 작은 조각12개, 동시 몸체10개.
-
-편집: `ReplicatedStorage.DeathLaunchConfig`. Enabled=false 후 새 Play로 기존 즉시 분해 경로 사용. R6 Motor6D/R15 AnimationConstraint 지원, 벽 접촉은 감쇠하고 바닥만 분해. 테니스 기존 감속과 중복되지 않도록 연동. [최종 값·실측·원복](updates/2026-10-11-death-launch-landing-shatter.md).
+TGS·테니스 모두 시체 비행을 추가하기 전의 처치 직후 분해 연출로 복구했다. 공격 방향 래그돌 비행, 무기별 비행 강도, 바닥 착지 대기/추가 조각은 현재 사용하지 않는다. 추가했던 `DeathLaunch`와 `DeathLaunchConfig`는 활성 위치에서 제거했다. [롤백 범위·검증·복구](updates/2026-10-11-death-flight-rollback.md).
 
 ## 테니스 처치 슬로모션
 
 `ReplicatedStorage.TennisDuelConfig`: KillSlowMotionEnabled=true, Duration=3초, Scale=0.1, Hold=0(정확한 필드명은 모두 KillSlowMotion 접두어). 10%에서 시작해 3초 동안 점차 정상 속도로 복귀한다. 1.5초 시점55%. ResultCameraDelay=3, RoundResultSeconds=6.5.
+
+최대2초·착지 즉시 해제 시험 변경은 사용자 요청으로 원복했다. 현재는 착지와 무관하게 기존3초 곡선을 사용한다. [롤백 기록](updates/2026-10-11-death-flight-rollback.md).
 
 확인된 처치에만 참가자 이동/애니메이션 및 사망 몸체 속도·낙하 적용. 생존자는 동시 사망 판정 구간 종료 후 적용하며, 결과 카메라는3초 뒤로 늦추고 기존 카메라 구간3.5초를 확보했다. 점수·피해·동시 사망 판정·월드 중력은 유지. TGS 슬로모션 미적용. [최신 검증·복구](updates/2026-10-11-combat-feel-v2.md).
 
