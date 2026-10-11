@@ -66,3 +66,9 @@
 - 중앙 탄약 아크는 토스터 기본 반경으로 공통 배치. 스나이퍼 스코프 중 숨김.
 
 목발은 자동만 허용하며 B 전환 없음. 목발/컴퍼스 전용 근접 공격 비활성. 컴퍼스 기본3점사는 유지.
+
+## 이동 표적 판정 보정 — 시험 적용
+
+TGS·테니스 다섯 총기 공통. ReplicatedStorage.GunSystem의 LagCompensationEnabled=true, LagCompensationViewDelay=0.05. 최대 되감기0.2초, 기록0.35초/약30Hz. 플레이어만 과거 위치를 검사하고 벽·NPC는 현재 위치. false로 끄면 기존 판정으로 복귀한다. 실제2인 체감 미검증.
+
+ServerScriptService.HitRegistrationHistory 및 각 무기의 ClientHandler/ServerHandler에서 연결한다. ServerStorage.HitRegistrationBackup_20261011에 검증된 전체 원복 자료 보관. [구현 범위·원복 절차·검증](updates/2026-10-11-hit-registration.md).
