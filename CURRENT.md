@@ -74,3 +74,9 @@
 TGS·테니스 다섯 총기 공통. ReplicatedStorage.GunSystem의 LagCompensationEnabled=true, LagCompensationViewDelay=0.05. 최대 되감기0.2초, 기록0.35초/약30Hz. 플레이어만 과거 위치를 검사하고 벽·NPC는 현재 위치. false로 끄면 기존 판정으로 복귀한다. 실제2인 체감 미검증.
 
 ServerScriptService.HitRegistrationHistory 및 각 무기의 ClientHandler/ServerHandler에서 연결한다. ServerStorage.HitRegistrationBackup_20261011에 검증된 전체 원복 자료 보관. [구현 범위·원복 절차·검증](updates/2026-10-11-hit-registration.md).
+
+## 테니스 처치 슬로모션
+
+`ReplicatedStorage.TennisDuelConfig`: KillSlowMotionEnabled=true, Duration=0.65초, Scale=0.4, Hold=0.30초(정확한 필드명은 모두 KillSlowMotion 접두어). 남은0.35초는 정상 속도로 부드럽게 복귀한다.
+
+확인된 처치에만 참가자 이동/애니메이션 및 사망 몸체 속도·낙하 적용. 생존자는 동시 사망 판정 구간 종료 후 적용하며, 결과 카메라 전환·점수·타이머·월드 중력·명중음은 유지한다. TGS 미적용. [검증·복구·적용 범위](updates/2026-10-11-tennis-kill-slow-motion.md).
