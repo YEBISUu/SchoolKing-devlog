@@ -44,6 +44,16 @@
 
 편집: `GunSystem.GunConfig.Sniper`, `StarterPack.Sniper`, `GunSystem.SniperScope`, `GunSystem.SniperTrace`, `GunSystem.Recoil`, `StarterPlayerScripts.CustomFPCamera`. 기존 목발과 별도 무기. 휠 소리는 실제 배율 변경 시 재생하고 입력 중단 후0.12초에 정지.
 
+## 빈 탄창 자동 재장전
+
+TGS·테니스의 목발, 컴퍼스, 토스터, 실리콘건, 스나이퍼에 적용. 마지막 탄 발사 간격과 발사 애니메이션이 끝나면 자동 시작하며, 빈 무기를 다시 장착하면 장착 완료 및 해당 Tool 탄약 응답을 기다린 뒤 시작한다. 실리콘건은 연속 발사 자세 대신 발사 간격으로 판단한다.
+
+- 탄이1발 이상 남으면 자동 재장전하지 않고 기존 R 입력을 사용한다.
+- 예비 탄약이 없으면 자동 요청하지 않는다. 재장전 중 무기 교체 시 취소하며 탄약을 미리 채우거나 예비 탄약을 소모하지 않는다.
+- 스나이퍼의 남은 강화탄은 보존하며, 강화탄을 발사해0발이 되면 일반 재장전이 가능하다.
+- 편집: `ReplicatedStorage.GunSystem.GunConfig.Default.AutoReloadWhenEmpty=true`. 무기별 같은 필드로 재정의 가능. 공통 조건은 `GunSystem.AutoReload`.
+- [구현 범위·검증·원복](updates/2026-10-11-empty-auto-reload.md). Studio 적용, Roblox 미게시.
+
 ## 이미지 교체
 
 | 대상 | 최종 ImageId | 참조 파일 |
