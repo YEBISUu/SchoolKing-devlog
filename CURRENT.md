@@ -81,3 +81,9 @@ ServerScriptService.HitRegistrationHistory 및 각 무기의 ClientHandler/Serve
 `ReplicatedStorage.TennisDuelConfig`: KillSlowMotionEnabled=true, Duration=0.65초, Scale=0.4, Hold=0.30초(정확한 필드명은 모두 KillSlowMotion 접두어). 남은0.35초는 정상 속도로 부드럽게 복귀한다.
 
 확인된 처치에만 참가자 이동/애니메이션 및 사망 몸체 속도·낙하 적용. 생존자는 동시 사망 판정 구간 종료 후 적용하며, 결과 카메라 전환·점수·타이머·월드 중력·명중음은 유지한다. TGS 미적용. [검증·복구·적용 범위](updates/2026-10-11-tennis-kill-slow-motion.md).
+
+## TGS 스폰 분리
+
+TGS의 플레이어·봇이 `ServerScriptService.TgsSpawnService` 예약을 공유한다. Enabled=true SpawnLocation 중 다른 살아 있는 참가자와12 studs 이상 떨어진 위치를 선택하며, 배치 직후1초 보호/최근3초 사용 감점을 적용한다. 로드 전 예약 및 RespawnLocation 설정, 로드 후 재검사로 비동기 생성 도중의 충돌을 줄인다. 빈 위치가 없으면 점유 중인 곳으로 강제 배치하지 않는다.
+
+라운드 시작·늦은 참가·사망 부활은 FixedAvatarBody.Load로 배치를 통일하며, 같은 플레이어의 진행 중인 생성 요청은 결과를 공유한다. 최소2초/자동10초 부활을 유지하고 옛 캐릭터의 타이머를 무효화한다. 테니스 미적용. TGS Play34개 검사 통과, 실제 온라인 다인전 미확인. [설정·복구·검증](updates/2026-10-11-tgs-spawn-reservations.md).
