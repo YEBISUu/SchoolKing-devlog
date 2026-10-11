@@ -33,14 +33,14 @@
 | 사거리 | 1000 studs |
 | 서버 보조 판정 반경 | 0.1 studs |
 | 머리 보너스 | 중심선이 동일 Head에 명중했을 때 |
-| 스코프 | 우클릭 토글, 진입 대기0.15초, 휠1~4배 |
-| 수직/수평 반동 | 2.99도 / 0.45도, 조준 배율0.8 |
-| 수직 복귀 | 자동 복귀 없이 시선에 누적; [복귀안 조사만 완료](updates/2026-10-11-sniper-recoil-research.md) |
+| 스코프 | 우클릭 토글, 진입 대기0.15초, 휠1~4배; 첫1배, 이후 같은 접속 내 마지막 배율 기억 |
+| 수직/수평 반동 | 5.5도 / 0.45도, 조준 배율0.8 → 수직4.4도 |
+| 수직 복귀 | 상승0.06초 + 유지0.04초 + 복귀0.55초, 아래 입력과 중복 복귀 방지. [구현 상세](updates/2026-10-11-sniper-scope-recovery.md) |
 | 장착 | 0.85초 |
 | 강화탄 | R0.4초 유지 후3초 합치기, 2/3/4/5발→100/125/150/175 기본 피해 |
 | 관통 | 캐릭터 관통, 대상당1회, 벽에서 중단, 추가 관통 감쇠 없음 |
 
-편집: `GunSystem.GunConfig.Sniper`, `StarterPack.Sniper`, `GunSystem.SniperScope`, `GunSystem.SniperTrace`. 기존 목발과 별도 무기. 휠 소리는 실제 배율 변경 시 재생하고 입력 중단 후0.12초에 정지.
+편집: `GunSystem.GunConfig.Sniper`, `StarterPack.Sniper`, `GunSystem.SniperScope`, `GunSystem.SniperTrace`, `GunSystem.Recoil`, `StarterPlayerScripts.CustomFPCamera`. 기존 목발과 별도 무기. 휠 소리는 실제 배율 변경 시 재생하고 입력 중단 후0.12초에 정지.
 
 ## 이미지 교체
 
