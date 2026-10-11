@@ -82,6 +82,7 @@
 
 - TGS·테니스 일반 명중 흰색/헤드샷 노랑0.18초. 처치 빨강 RGB255/60/60, 불투명0.45초+페이드0.30초=0.75초.
 - 처치 최초1.6배(실제51×8)에서0.16초 동안 기본32×5로 복귀. 일반/헤드샷보다 우선, 다음 처치에 재시작. DisplayOrder135.
+- 헤드샷 개별·누적 숫자는 RGB255/220/80 노랑. 누적 색은 마지막 헤드샷부터0.35초 유지+0.15초 흰색 복귀하며, 뒤따른 몸통 명중은 유지 시간을 지우지 않음. 합계는 여전히 모든 부위 피해의 합. [최신 조정](updates/2026-10-11-headshot-slow-tuning.md).
 - 누적 피해 숫자 기본36/UIScale1.5→1,0.24초 복귀. 단일 피해28/헤드샷32. 연사/산탄의 크기 누적 없이 기존 합산·수명 유지.
 - 두 맵 `StarterPlayerScripts.DamageNumbers` 상수에서 조절. 테니스 서버 확정 처치 신호 연결 유지.
 - 옛 실드 파괴 환호 대신 기존 실드 파괴음을 재생. 본인 실드 파괴의 테니스 관중 반응 차단. [최신 설정·검증·복구](updates/2026-10-11-combat-feel-v2.md).
@@ -96,7 +97,7 @@ ServerScriptService.HitRegistrationHistory 및 각 무기의 ClientHandler/Serve
 
 ## 테니스 처치 슬로모션
 
-`ReplicatedStorage.TennisDuelConfig`: KillSlowMotionEnabled=true, Duration=3초, Scale=0.25, Hold=0(정확한 필드명은 모두 KillSlowMotion 접두어). 25%에서 시작해 3초 동안 점차 정상 속도로 복귀한다. ResultCameraDelay=3, RoundResultSeconds=6.5.
+`ReplicatedStorage.TennisDuelConfig`: KillSlowMotionEnabled=true, Duration=3초, Scale=0.1, Hold=0(정확한 필드명은 모두 KillSlowMotion 접두어). 10%에서 시작해 3초 동안 점차 정상 속도로 복귀한다. 1.5초 시점55%. ResultCameraDelay=3, RoundResultSeconds=6.5.
 
 확인된 처치에만 참가자 이동/애니메이션 및 사망 몸체 속도·낙하 적용. 생존자는 동시 사망 판정 구간 종료 후 적용하며, 결과 카메라는3초 뒤로 늦추고 기존 카메라 구간3.5초를 확보했다. 점수·피해·동시 사망 판정·월드 중력은 유지. TGS 슬로모션 미적용. [최신 검증·복구](updates/2026-10-11-combat-feel-v2.md).
 
