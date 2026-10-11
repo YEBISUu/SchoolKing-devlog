@@ -39,7 +39,7 @@
 | 명중음 | 기존 실드/체력 음원, 스나이퍼 최소 볼륨0.9; 실드 파괴에도 명중음+환호, 로컬 발사/볼트음 잠깐 감쇠. [상세](updates/2026-10-11-sniper-hit-sound.md) |
 | 장착 | 0.85초; 장착 중 재장전/줌 입력을 유지하고 준비 후 실행 |
 | 입력 대기 | 줌 토글 재클릭 취소, 재장전 중 요청한 줌은 완료 후 실행. 그래플 복귀의 짧은 우클릭 유지. [상세](updates/2026-10-11-sniper-input-buffer.md) |
-| 강화탄 | R0.4초 유지 후3초 합치기, 2/3/4/5발→100/125/150/175 기본 피해 |
+| 강화탄 | R0.4초 유지 후 탄 수×0.6초 합치기(2/3/4/5발→1.2/1.8/2.4/3초), 기본 피해100/125/150/175 |
 | 관통 | 캐릭터 관통, 대상당1회, 벽에서 중단, 추가 관통 감쇠 없음 |
 
 편집: `GunSystem.GunConfig.Sniper`, `StarterPack.Sniper`, `GunSystem.SniperScope`, `GunSystem.SniperTrace`, `GunSystem.Recoil`, `StarterPlayerScripts.CustomFPCamera`. 기존 목발과 별도 무기. 휠 소리는 실제 배율 변경 시 재생하고 입력 중단 후0.12초에 정지.
@@ -71,8 +71,10 @@
 ### 탄약 경고와 강화탄 표시
 
 - 중앙 잔탄 아크/하단 AmmoMag: 50% 이상 기존색, 10% 초과~50% 미만 주황0.9초 점멸, 10% 이하 또는 마지막1발 빨강0.4초 점멸. 예비 탄약 색은 유지.
-- 스나이퍼 합친 탄은 무지개 순환2.4초와 숫자 외곽선 표시를 우선하고 재장전 안내를 숨김. 소모 후 일반 경고.
+- 스나이퍼 합친 탄은 무지개 순환0.8초와 숫자 외곽선 표시를 우선하고 재장전 안내를 숨김. 소모 후 일반 경고.
 - 재장전 안내: `StarterGui.GameHUD.ReloadPrompt`. 배경 없는 흰 글씨+빨간 글자 윤곽선. Position 기본(0.5,0,0.5,112), 직접 위치 조절 가능.
+- 합치기 게이지: `StarterGui.GameHUD.CompressionGauge` Position/Size 직접 편집, 기본(0.5,0,0.5,150)/240×46. 서버 합치기 중에만 표시하고 취소/교체/사망/비전투에서 숨김.
+- 합치기 완료음: `GunSystem.Sounds.Sniper.CompressComplete`=88473378930877. 강화 발사 추가음 `EmpoweredFire`=134856092695680, 기존 격발음과 함께 재생. [시간·게이지·음원 상세](updates/2026-10-11-sniper-compression.md).
 - 색/주기: `ReplicatedStorage.GunSystem.AmmoWarningStyle` 속성. 무기 해제·비전투·무한 탄약에서는 경고 해제.
 - 강화탄 발사 소모는 효과 처리 전에 서버 동기화하고 빈 탄창의 재장전은 오래된 강화 속성으로 차단하지 않음. [최종 조건·검증·복구](updates/2026-10-11-ammo-warning-ui.md).
 
